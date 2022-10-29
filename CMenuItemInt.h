@@ -13,16 +13,29 @@ private:
 	const char* name;
 	/// <summary>The value. </summary>
 	int32_t* pValue;
+	/// <summary>The minimum. </summary>
+	int32_t min_val;
+	/// <summary>The maximum. </summary>
+	int32_t max_val;
+	/// <summary>The step value. </summary>
+	int32_t step_value;
+	/// <summary>The increased step value. </summary>
+	int32_t increased_step_value;
 
 public:
+
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>Constructor. </summary>
 	///
 	/// <remarks>Tim Jäger [0x54696d], 28/10/2022. </remarks>
 	///
-	/// <param name="name">   The name. </param>
-	/// <param name="int32_t">[in,out] If non-null, the int 32 t. </param>
-	CMenuItemInt(const char* name, int32_t* int32_t);
+	/// <param name="name">				   The name. </param>
+	/// <param name="pValue">			   [in,out] If non-null, the int 32 t. </param>
+	/// <param name="min_val">			   The minimum value. </param>
+	/// <param name="max_val">			   The maximum value. </param>
+	/// <param name="step_value">		   The step value. </param>
+	/// <param name="increased_step_value">The increased step value. </param>
+	CMenuItemInt(const char* name, int32_t* pValue, int32_t min_val, int32_t max_val, int32_t step_value, int32_t increased_step_value);
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	/// <summary>Renders this object. </summary>

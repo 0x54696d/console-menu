@@ -1,7 +1,7 @@
 #include "CMenuItemInt.h"
 
-CMenuItemInt::CMenuItemInt(const char* name, int32_t* pValue) :
-	name(name), pValue(pValue) {}
+CMenuItemInt::CMenuItemInt(const char* name, int32_t* pValue, int32_t min_val, int32_t max_val, int32_t step_value, int32_t increased_step_value) :
+	name(name), pValue(pValue), min_val(min_val), max_val(max_val), step_value(step_value), increased_step_value(increased_step_value) {}
 
 void CMenuItemInt::render(bool is_active, uint32_t tab_offset)
 {
@@ -27,10 +27,27 @@ const char* CMenuItemInt::get_name()
 
 void CMenuItemInt::increase()
 {
-	*pValue += 1;
+	if (*pValue < max_val) {
+		if (GetAsyncKeyState(VK_SHIFT) & 0x8000) {
+			*pValue += increased_step_value;
+			if (*pValue > max_val)
+				*pValue = max_val;
+			return;
+		}
+
+		*pValue += step_value;
+	}
 }
 
 void CMenuItemInt::decrease()
 {
-	*pValue -= 1;
+	if (*pValue > min_val) {
+		if (GetAsyncKeyState(VK_SHIFT) & 0x8000) {
+			*pValue -= increased_step_value;
+			if (*pValue < min_val)
+				*pValue = min_val;
+			return;
+		}
+		*pValue -= 1;
+	}
 }
