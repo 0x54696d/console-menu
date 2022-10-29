@@ -133,6 +133,7 @@
   <ItemGroup>
     <ClCompile Include="CMenu.cpp" />
     <ClCompile Include="CMenuItemBool.cpp" />
+    <ClCompile Include="CMenuItemFloat.cpp" />
     <ClCompile Include="CMenuItemInt.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
@@ -140,6 +141,7 @@
     <ClInclude Include="CMenu.h" />
     <ClInclude Include="CMenuItem.h" />
     <ClInclude Include="CMenuItemBool.h" />
+    <ClInclude Include="CMenuItemFloat.h" />
     <ClInclude Include="CMenuItemInt.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

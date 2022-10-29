@@ -7,6 +7,7 @@
 #include "CMenuItem.h"
 #include "CMenuItemBool.h"
 #include "CMenuItemInt.h"
+#include "CMenuItemFloat.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 /// <summary>A console based menu. </summary>
@@ -90,4 +91,12 @@ public:
     ///
     /// <param name="item">The item. </param>
     void add_item(CMenuItemInt item);
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+    /// <summary>Adds an item to the menu. </summary>
+    ///
+    /// <remarks>Tim Jäger [0x54696d], 28/10/2022. </remarks>
+    ///
+    /// <param name="item">The item. </param>
+    void add_item(CMenuItemFloat item);
 };

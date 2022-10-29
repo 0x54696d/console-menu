@@ -1,9 +1,9 @@
-#include "CMenuItemInt.h"
+#include "CMenuItemFloat.h"
 
-CMenuItemInt::CMenuItemInt(const char* name, int32_t* pValue, int32_t min_val, int32_t max_val, int32_t step_value, int32_t increased_step_value) :
+CMenuItemFloat::CMenuItemFloat(const char* name, float_t* pValue, float_t min_val, float_t max_val, float_t step_value, float_t increased_step_value) :
 	name(name), pValue(pValue), min_val(min_val), max_val(max_val), step_value(step_value), increased_step_value(increased_step_value) {}
 
-void CMenuItemInt::render(bool is_active, uint32_t tab_offset)
+void CMenuItemFloat::render(bool is_active, uint32_t tab_offset)
 {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 8);
 	if (is_active) {
@@ -15,17 +15,17 @@ void CMenuItemInt::render(bool is_active, uint32_t tab_offset)
 	printf("] %s | ", name_output.c_str());
 
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-	printf("%d", *pValue);
+	printf("%f", *pValue);
 
 	printf("\n");
 }
 
-const char* CMenuItemInt::get_name()
+const char* CMenuItemFloat::get_name()
 {
 	return name;
 }
 
-void CMenuItemInt::increase()
+void CMenuItemFloat::increase()
 {
 	if (*pValue < max_val) {
 		if (GetAsyncKeyState(VK_SHIFT) & 0x8000) {
@@ -39,7 +39,7 @@ void CMenuItemInt::increase()
 	}
 }
 
-void CMenuItemInt::decrease()
+void CMenuItemFloat::decrease()
 {
 	if (*pValue > min_val) {
 		if (GetAsyncKeyState(VK_SHIFT) & 0x8000) {

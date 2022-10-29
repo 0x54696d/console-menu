@@ -102,3 +102,9 @@ void CMenu::add_item(CMenuItemInt item)
 	items.push_back(&item);
 	adjust_tab_offset();
 }
+
+void CMenu::add_item(CMenuItemFloat item)
+{
+	items.push_back(&item);
+	adjust_tab_offset();
+}
